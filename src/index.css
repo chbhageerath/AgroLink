@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F9F6F0;
+    color: #2A2A2A;
+}
+
+@layer base {
+    :root {
+        /* Earthy Organic Palette */
+        --background: 42 36% 95%;         /* #F9F6F0 */
+        --foreground: 0 0% 16%;           /* #2A2A2A */
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 16%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 16%;
+        --primary: 125 31% 25%;           /* #2C5530 */
+        --primary-foreground: 0 0% 100%;
+        --secondary: 74 27% 48%;          /* #8A9A5B */
+        --secondary-foreground: 0 0% 10%;
+        --muted: 42 25% 89%;              /* #EAE5D9 */
+        --muted-foreground: 40 4% 41%;    /* #6B6A65 */
+        --accent: 14 55% 49%;             /* #C05A3C */
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 70% 50%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 39 22% 87%;             /* #E5E0D8 */
+        --input: 39 22% 87%;
+        --ring: 125 31% 25%;
+        --chart-1: 125 31% 25%;
+        --chart-2: 74 27% 48%;
+        --chart-3: 14 55% 49%;
+        --chart-4: 42 25% 65%;
+        --chart-5: 30 30% 45%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        letter-spacing: -0.02em;
+    }
+}
+
+/* Grain noise texture */
+.grain {
+    position: relative;
+}
+.grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+}
+
+.soft-shadow {
+    box-shadow: 0 4px 24px rgba(44, 85, 48, 0.06);
+}
+
+@layer base {
+    [data-debug-wrapper="true"] { display: contents !important; }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+        padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+        column-gap: inherit; row-gap: inherit; gap: inherit;
+        border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
+        border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
+        border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
+    }
+}
